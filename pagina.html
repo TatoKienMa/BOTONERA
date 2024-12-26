@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Botonoc</title>
+</head>
+<body>
+  <header>
+    <span>Usuario:</span>
+    <select id="user-selector">
+      <option value="Tadeo">Tadeo</option>
+      <option value="Mauricio">Mauricio</option>
+      <option value="Romina">Romina</option>
+      <option value="Daniel">Daniel</option>
+    </select>
+    <button id="add-template-video" class="orange-button">Agregar Plantilla</button>
+    <button id="edit-template-video" class="orange-button">Modificar Plantilla</button>
+  </header>
+
+  <main>
+    <div id="botones-container">
+      <h2>Plantillas Nocnockeras</h2>
+      <div id="botones-br" class="column"></div>
+      <div id="botones-esp" class="column"></div>
+      <div id="botones-otros" class="column"></div>
+    </div>
+  </main>
+
+  <!-- Modal Agregar Plantilla -->
+  <div id="add-template-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Agregar plantilla</h2>
+      <input type="text" id="new-title" placeholder="Título" />
+      <textarea id="new-text" placeholder="Texto"></textarea>
+      <button id="save-template" class="blue-button">Guardar</button>
+    </div>
+  </div>
+
+  <!-- Modal Editar Plantilla -->
+  <div id="edit-template-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Editar plantillas</h2>
+      <select id="template-selector"></select>
+      <input type="text" id="edit-title" placeholder="Título" />
+      <textarea id="edit-text" placeholder="Texto"></textarea>
+      <button id="update-template" class="blue-button">Guardar Cambios</button>
+      <button id="delete-template" class="red-button">Eliminar Plantilla</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
