@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allTemplates.forEach(template => {
       const btn = document.createElement("button");
-      btn.className = "blue-button tooltip";
+      btn.className = "nocnoc-button tooltip";
       btn.textContent = template.title;
 
       const tooltipText = document.createElement("span");

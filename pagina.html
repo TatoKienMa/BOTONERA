@@ -1,57 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Botonoc</title>
-</head>
-<body>
-  <header>
-    <span>Usuario:</span>
-    <select id="user-selector">
-      <option value="Tadeo">Tadeo</option>
-      <option value="Mauricio">Mauricio</option>
-      <option value="Romina">Romina</option>
-      <option value="Daniel">Daniel</option>
-    </select>
-    <button id="add-template-video" class="orange-button">Agregar Plantilla</button>
-    <button id="edit-template-video" class="orange-button">Modificar Plantilla</button>
-  </header>
-
-  <main>
-    <div id="botones-container">
-      <h2>Plantillas Nocnockeras</h2>
-      <div id="botones-br" class="column"></div>
-      <div id="botones-esp" class="column"></div>
-      <div id="botones-otros" class="column"></div>
-    </div>
-  </main>
-
-  <!-- Modal Agregar Plantilla -->
-  <div id="add-template-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Agregar plantilla</h2>
-      <input type="text" id="new-title" placeholder="Título" />
-      <textarea id="new-text" placeholder="Texto"></textarea>
-      <button id="save-template" class="blue-button">Guardar</button>
-    </div>
-  </div>
-
-  <!-- Modal Editar Plantilla -->
-  <div id="edit-template-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Editar plantillas</h2>
-      <select id="template-selector"></select>
-      <input type="text" id="edit-title" placeholder="Título" />
-      <textarea id="edit-text" placeholder="Texto"></textarea>
-      <button id="update-template" class="blue-button">Guardar Cambios</button>
-      <button id="delete-template" class="red-button">Eliminar Plantilla</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Botonoc</title>
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="./media/nocnoc-logo-white.svg"
+        alt="Logo de NocNoc"
+      />
+      <h1 class="title"><span>Botonoc</span> - Botonera Nocnockera</h1>
+    </header>
+    <main>
+      <section class="modificaciones">
+        <div class="user-select">
+          <p>Usuario:</p>
+          <select id="user-selector">
+            <option value="Tadeo">Tadeo</option>
+            <option value="Mauricio">Mauricio</option>
+            <option value="Romina">Romina</option>
+            <option value="Daniel">Daniel</option>
+          </select>
+        </div>
+        <button id="add-template-video" class="orange-button">
+          Agregar Plantilla
+        </button>
+        <button id="edit-template-video" class="orange-button">
+          Modificar Plantilla
+        </button>
+      </section>
+      <section class="botones-section" id="botones-container">
+        <h2>Plantillas Nocnockeras</h2>
+        <div class="botones-container">
+          <div id="botones-br" class="column">Neymars</div>
+          <div id="botones-esp" class="column">Brasil</div>
+          <div id="botones-otros" class="column">Brasil</div>
+        </div>
+      </section>
+      <!-- Modal Agregar Plantilla -->
+      <div id="add-template-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Agregar plantilla</h2>
+          <form class="modal-form" action="">
+            <label for="titulo">Titulo:</label>
+            <input
+              name="titulo"
+              type="text"
+              id="new-title"
+              placeholder="Ej: Saludo ES"
+            />
+            <label for="texto">Texto:</label>
+            <textarea
+              name="texto"
+              type="text"
+              id="new-text"
+              placeholder="Buenas tardes!..."
+            ></textarea>
+            <button type="submit" id="save-template" class="blue-button">
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Modal Editar Plantilla -->
+      <div id="edit-template-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Editar plantillas</h2>
+          <form class="modal-form" action="">
+            <select id="template-selector"></select>
+            <label for="titulo">Titulo:</label>
+            <input
+              name="titulo"
+              type="text"
+              id="edit-title"
+              placeholder="Ej: Saludo ES"
+            />
+            <label for="texto">Texto:</label>
+            <textarea
+              name="texto"
+              type="text"
+              id="edit-text"
+              placeholder="Buenas tardes!..."
+            >
+            </textarea>
+            <div class="form-changes">
+              <button id="update-template" class="blue-button">
+                Guardar Cambios
+              </button>
+              <button id="delete-template" class="red-button delete-template">
+                Eliminar Plantilla
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>Designed by FMachado - Intelectual property of Tatokienmas</footer>
+    <script src="script.js"></script>
+  </body>
 </html>
