@@ -87,12 +87,28 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Selecciona una plantilla y llena ambos campos");
     }
   });
-
-  // Eliminar plantilla
+  //----------------------------------------------------------------- BACKUP DE PLANTILLA A ELIMINAR
+  function verificarYCrearBackup() {
+    const backup = localStorage.getItem("backupTemplates");
+    if (!backup) {
+      localStorage.setItem("backupTemplates", JSON.stringify([]));
+    }
+  }
+  function guardarEnBackup(plantilla) {
+    verificarYCrearBackup();
+    const backup = JSON.parse(localStorage.getItem("backupTemplates"));
+    backup.push(plantilla);
+    localStorage.setItem("backupTemplates", JSON.stringify(backup));
+    console.log("Backup actualizado:", JSON.parse(localStorage.getItem("backupTemplates")));
+  }
+  
+  //----------------------------------------------------------------- ELIMINAR PLANTILLA
   deleteTemplateBtn.addEventListener("click", () => {
     const selectedIndex = templateSelector.value;
 
     if (selectedIndex !== "") {
+      const plantillaEliminada = templates[selectedIndex];
+      guardarEnBackup(plantillaEliminada);
       templates.splice(selectedIndex, 1);
       guardarEnLocalStorage(templates);
       actualizarBotones();
@@ -100,7 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       alert("Selecciona una plantilla para eliminar");
     }
-  });
+});
+
+
 
   // Actualizar botones dinámicos
   function actualizarBotones() {

@@ -52,26 +52,28 @@
       <div id="add-template-modal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <h2>Agregar plantilla</h2>
-          <form class="modal-form" action="">
-            <label for="titulo">Titulo:</label>
-            <input
-              name="titulo"
-              type="text"
-              id="new-title"
-              placeholder="Ej: Saludo ES"
-            />
-            <label for="texto">Texto:</label>
-            <textarea
-              name="texto"
-              type="text"
-              id="new-text"
-              placeholder="Buenas tardes!..."
-            ></textarea>
-            <button type="submit" id="save-template" class="blue-button">
-              Guardar
-            </button>
-          </form>
+          <div>
+            <h2>Agregar plantilla</h2>
+            <form class="modal-form" action="">
+              <label for="titulo">Titulo:</label>
+              <input
+                name="titulo"
+                type="text"
+                id="new-title"
+                placeholder="Ej: Saludo ES"
+              />
+              <label for="texto">Texto:</label>
+              <textarea
+                name="texto"
+                type="text"
+                id="new-text"
+                placeholder="Buenas tardes!..."
+              ></textarea>
+              <button type="submit" id="save-template" class="blue-button">
+                Guardar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
       <!-- Modal Editar Plantilla -->
@@ -108,7 +110,20 @@
         </div>
       </div>
     </main>
-    <footer>Designed by FMachado - Intelectual property of Tatokienmas</footer>
+    <footer>
+      <div class="links">
+        <a
+          href="https://www.linkedin.com/in/facundo-machado-b1554825a/"
+          target="_blank"
+        >
+          <img src="./media/linkedin.svg" alt="Icono de LinkedIn" />
+        </a>
+        <a href="https://www.fmachado.site" target="_blank">
+          <img src="./media/code-square.svg" alt="Link a Portfolio" />
+        </a>
+      </div>
+      <p>Designed by FMachado - Intelectual property of Tatokienmas</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

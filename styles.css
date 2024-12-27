@@ -52,10 +52,15 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 5dvh auto 5dvh;
-  justify-content: center;
   overflow: hidden;
   min-height: 100dvh;
   align-items: start;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 /* -------------------------------BOTONES------------------------------- */
 /* Botones principales */
@@ -136,15 +141,15 @@ header {
 
 .modal-content {
   background-color: white;
-  padding: 20px;
+  padding: var(--space-m);
   border-radius: 10px;
   width: clamp(300px, 20rem, 400px);
   text-align: left;
   position: relative;
-  flex-direction: column;
-  display: flex;
-  align-items: start;
-  justify-content: flex-start;
+
+}
+.modal-content div{
+  padding-top: var(--space-xs);
 }
 .modal-content h2{
   font-size: var(--step-1);
@@ -208,17 +213,16 @@ header {
   background-color: red;
 }
 .modal-content .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  float: right;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   height: 25px;
   width: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
+  transition: all ease-in-out .15s;
 }
 .modal-content .close:hover {
   color: white;
@@ -258,11 +262,14 @@ header {
 /* -------------------------------MODIFICACIONES------------------------------- */
 .modificaciones{
   padding: var(--space-m) var(--space-m);
+  margin: var(--space-m) var(--space-m);
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   gap: var(--space-m);
+  background-color: rgb(from var(--grey) r g b / 30%);
+  border-radius: var(--space-xs);
 }
 .modificaciones .user-select{
   display: flex;
@@ -319,6 +326,7 @@ header {
 }
 .botones-section h2{
   font-size: var(--step-3);
+  padding-bottom: var(--space-m);
 }
 .botones-section .botones-container{
   width: 100%;
@@ -327,14 +335,16 @@ header {
   gap: 20px;
 }
 .botones-section .botones-container div{
-  background-color: rgb(from var(--grey) r g b / 30%);
+  background-color: rgb(from var(--grey) r g b / 20%);
   border-radius: var(--space-xs);
   padding: var(--space-m);
-  filter: drop-shadow(0px 10px 10px hsl(from black h s l / 10%));
+  filter: drop-shadow(0px 10px 5px hsl(from black h s l / 10%));
 }
 .botones-section .botones-container div button{
   width: 100%;
 }
+
+/* -------------------------------FOOTER------------------------------- */
 
 footer{
   display: flex;
@@ -342,4 +352,14 @@ footer{
   justify-content: center;
   background-color: var(--primary-color);
   color: white;
+  height: 100%;
+  gap: 30px;
+}
+footer .links{
+  display: flex;
+  gap: 20px;
+}
+footer .links a img{
+  width: 25px;
+  height: auto;
 }
