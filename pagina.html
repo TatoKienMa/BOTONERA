@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="styles.css" />
     <title>Botonoc</title>
+    <link rel="icon" type="image/x-icon" href="./media/cropped-favicon-192x192.png">
   </head>
   <body>
     <header>
@@ -23,32 +24,35 @@
       <h1 class="title"><span>Botonoc</span> - Botonera Nocnockera</h1>
     </header>
     <main>
-      <section class="modificaciones">
-        <div class="user-select">
-          <p>Usuario:</p>
-          <select id="user-selector">
-            <option value="Tadeo">Tadeo</option>
-            <option value="Mauricio">Mauricio</option>
-            <option value="Romina">Romina</option>
-            <option value="Daniel">Daniel</option>
-          </select>
+      <section id="plantillas-activas">
+        <div class="modificaciones">
+          <div class="user-select">
+            <p>Usuario:</p>
+            <select id="user-selector">
+              <option value="Tadeo">Tadeo</option>
+              <option value="Mauricio">Mauricio</option>
+              <option value="Romina">Romina</option>
+              <option value="Daniel">Daniel</option>
+            </select>
+          </div>
+          <button id="add-template-button" class="orange-button">
+            Agregar Plantilla
+          </button>
+          <button id="edit-template-button" class="orange-button">
+            Modificar Plantilla
+          </button>
         </div>
-        <button id="add-template-video" class="orange-button">
-          Agregar Plantilla
-        </button>
-        <button id="edit-template-video" class="orange-button">
-          Modificar Plantilla
-        </button>
-      </section>
-      <section class="botones-section" id="botones-container">
-        <h2>Plantillas Nocnockeras</h2>
-        <div class="botones-container">
-          <div id="botones-br" class="column">Neymars</div>
-          <div id="botones-esp" class="column">Brasil</div>
-          <div id="botones-otros" class="column">Brasil</div>
+        <div class="botones-area" id="botones-container">
+          <h2>Plantillas Nocnockeras</h2>
+          <div class="botones-container">
+            <div id="botones-br" class="column">Neymars</div>
+            <div id="botones-esp" class="column">Brasil</div>
+            <div id="botones-otros" class="column">Brasil</div>
+          </div>
         </div>
       </section>
-      <!-- Modal Agregar Plantilla -->
+      <section id="plantillas-eliminadas">
+      </section>
       <div id="add-template-modal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -69,6 +73,11 @@
                 id="new-text"
                 placeholder="Buenas tardes!..."
               ></textarea>
+              <select id="category-filter">
+                <option value="BR">Brasil</option>
+                <option value="ESP">Español</option>
+                <option value="OTROS">Otros</option>
+              </select>
               <button type="submit" id="save-template" class="blue-button">
                 Guardar
               </button>
@@ -76,7 +85,6 @@
           </div>
         </div>
       </div>
-      <!-- Modal Editar Plantilla -->
       <div id="edit-template-modal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -122,7 +130,7 @@
           <img src="./media/code-square.svg" alt="Link a Portfolio" />
         </a>
       </div>
-      <p>Designed by FMachado - Intelectual property of Tatokienmas</p>
+      <p>Design & Engineered by Tatokienma & FMachado</p>
     </footer>
     <script src="script.js"></script>
   </body>

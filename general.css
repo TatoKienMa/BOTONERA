@@ -1,6 +1,6 @@
 :root{
     --main-font-family: "Poppins", serif;
-    --primary-color: #3137B0;
+    --primary-color: var(--persian-blue);
     --secondary-color: #0071FF;
     --grey: #D4D4D8;
 
@@ -24,4 +24,33 @@
     --step-3: clamp(1.728rem, 1.683rem + 0.2251vw, 1.9531rem);
     --step-4: clamp(2.0736rem, 2rem + 0.3678vw, 2.4414rem);
     --step-5: clamp(2.4883rem, 2.3756rem + 0.5634vw, 3.0518rem);
+
+        /* CSS HEX */
+    --persian-blue: #3137b0ff;
+    --violet: #7538fdff;
+    --gray: #85868aff;
+    --platinum: #eaeaeaff;
+    --blue-crayola: #1375fcff;
+    --tropical-indigo: #8d91cdff;
+    --gunmetal: #2b2f38ff;
+    --violet-blue: #444AB2ff;
+    --byzantine-blue: #2D4EDAff;
+    --periwinkle: #BFC1DFff;
+    --white: #FFFFFFff;
+    --white-smoke: #F5F5F5ff;
+    --antiflash-white: #EBEBEBff;
+
+    /* CSS HSL */
+    --persian-blue: hsla(237, 56%, 44%, 1);
+    --violet: hsla(259, 98%, 61%, 1);
+    --antiflash-white: hsla(0, 0%, 92%, 1);
+    --white-smoke: hsla(0, 0%, 96%, 1);
+    --white: hsla(0, 0%, 100%, 1);
+    --gray: hsla(228, 2%, 53%, 1);
+    --platinum: hsla(0, 0%, 92%, 1);
+    --blue-crayola: hsla(215, 97%, 53%, 1);
+    --tropical-indigo: hsla(236, 39%, 68%, 1);
+    --gunmetal: hsla(222, 13%, 19%, 1);
 }
+
+

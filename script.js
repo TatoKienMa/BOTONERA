@@ -1,18 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /**PLANTILLAS PREDETERMINADAS**/
   const defaultTemplates = [
-    { title: "Plantilla Predeterminada 1 BR", text: "Texto de la plantilla predeterminada 1" },
-    { title: "Plantilla Predeterminada 2 ESP", text: "Texto de la plantilla predeterminada 2" },
-    { title: "Plantilla Predeterminada 3", text: "Texto de la plantilla predeterminada 3" },
+    { title: "Plantilla Predeterminada 1 BR", text: "Texto de la plantilla predeterminada Brasilero" },
+    { title: "Plantilla Predeterminada 2 ESP", text: "Texto de la plantilla predeterminada Español" },
+    { title: "Plantilla Predeterminada 3 Otros", text: "Texto de la plantilla predeterminada Otros" },
   ];
-
+  /**SE EXTRAEN PLANTILLAS GUARDADAS EN LOCAL STORAGE**/
   let templates = JSON.parse(localStorage.getItem("templates"));
-
-  // Inicializar plantillas en localStorage si no existen
+  /**SI TEMPLATES ES NULL O LENGTH 0 SE CARGAN LAS DEFAULT DE ARRIBA**/
   if (!templates || templates.length === 0) {
     templates = defaultTemplates;
     guardarEnLocalStorage(templates);
   }
-
+  // Actualizar botones al cargar la página
+  actualizarBotones();
+  
+  /**TODOS LOS ELEMENTOS DEL HTML A EDITAR**/
   const addModal = document.getElementById("add-template-modal");
   const editModal = document.getElementById("edit-template-modal");
   const saveTemplateBtn = document.getElementById("save-template");
@@ -20,52 +23,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteTemplateBtn = document.getElementById("delete-template");
   const templateSelector = document.getElementById("template-selector");
   const userSelector = document.getElementById("user-selector");
+  const categoryFilter = document.getElementById("category-filter");
 
-  // Actualizar botones al cargar la página
-  actualizarBotones();
-
-  // Mostrar/Ocultar modales
+  /**MOSTRAR/OCULTAR MODALS**/
+  //AGREGA EVENTO PARA CERRAR MODAL
   document.querySelectorAll(".close").forEach(closeBtn => {
     closeBtn.addEventListener("click", () => {
       addModal.style.display = "none";
       editModal.style.display = "none";
     });
+  //AGREGA EVENTO PARA MOSTRAR MODAL
   });
-
-  document.getElementById("add-template-video").addEventListener("click", () => {
+  document.getElementById("add-template-button").addEventListener("click", () => {
     addModal.style.display = "flex";
   });
-
-  document.getElementById("edit-template-video").addEventListener("click", () => {
+  document.getElementById("edit-template-button").addEventListener("click", () => {
     cargarPlantillasEnSelector();
     editModal.style.display = "flex";
   });
 
-  // Cambiar texto de los botones naranjas
-  document.getElementById("add-template-video").textContent = "Agregar Plantilla";
-  document.getElementById("edit-template-video").textContent = "Modificar Plantilla";
+  document.getElementById("category-filter").addEventListener("change", (event) => {
+    const selectedCategory = event.target.value;
+    actualizarBotones(selectedCategory);
+  });
+  
 
-  // Cargar datos de la plantilla seleccionada en los campos de edición
+  /**TEXTO DE BOTONES DE AGREGAR-MODIFICAR PLANTILLA**/  
+  document.getElementById("add-template-button").textContent = "Agregar Plantilla";
+  document.getElementById("edit-template-button").textContent = "Modificar Plantilla";
+
+  /**SE CARGAN LOS VALORES DE LA PLANTILLA SELECCIONADA (MODAL MODIFICAR)**/
   templateSelector.addEventListener("change", () => {
-    const selectedIndex = templateSelector.value;
+    const selectedIndex = templateSelector.value;//
     if (selectedIndex !== "") {
-      const selectedTemplate = templates[selectedIndex];
+      const selectedTemplate = templates[selectedIndex];//
       document.getElementById("edit-title").value = selectedTemplate.title;
       document.getElementById("edit-text").value = selectedTemplate.text;
     }
   });
 
-  // Agregar plantilla
-  saveTemplateBtn.addEventListener("click", () => {
+    /**GUARDAR PLANTILLA - NUEVA**/
+    saveTemplateBtn.addEventListener("click", () => { //EVENTO ONCLICK EN BOTON
     const title = document.getElementById("new-title").value.trim();
     const text = document.getElementById("new-text").value.trim();
 
     if (title && text) {
-      templates.push({ title, text });
-      guardarEnLocalStorage(templates);
+      templates.push({ title, text }); //SE GUARDAN TITULO Y TEXTO EN ARRAY templates (en el cual se guardan las plantillas perdeterminadas)
+      guardarEnLocalStorage(templates); //SE GUARDA EN LOCAL STORAGE EL ARRAY DE OBJETOS
       actualizarBotones();
-      addModal.style.display = "none";
-      document.getElementById("new-title").value = ""; // Limpiar campos
+      addModal.style.display = "none";//SE OCULTA EL MODAL
+      document.getElementById("new-title").value = "";
       document.getElementById("new-text").value = "";
     } else {
       alert("Ambos campos son obligatorios");
@@ -87,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Selecciona una plantilla y llena ambos campos");
     }
   });
+
+  /**ELIMINAR PLANTILLA**/
   //----------------------------------------------------------------- BACKUP DE PLANTILLA A ELIMINAR
   function verificarYCrearBackup() {
     const backup = localStorage.getItem("backupTemplates");
