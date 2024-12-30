@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Copiar texto al portapapeles
   function copiarTexto(text) {
     const userName = userSelector.value;
-    const personalizedText = text.replace(/{name}/g, userName);
+    const personalizedText = `${text}. Atte: ${userName}`;
     navigator.clipboard.writeText(personalizedText).then(() => {
       // Eliminar el mensaje de confirmación
       // alert("Texto copiado: " + personalizedText);
